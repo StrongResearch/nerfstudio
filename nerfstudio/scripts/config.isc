@@ -1,0 +1,6 @@
+experiment_name = "nerfactor-poster"
+gpu_type = "24GB VRAM GPU"
+nnodes = 2
+venv_path = "/home/chris/nerfstudio/.venv/bin/activate"
+output_path = "/home/chris/output_nerfstudio"
+command = "train_ddp.py nerfacto --data ../../data/nerfstudio/poster"

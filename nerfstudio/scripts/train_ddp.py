@@ -243,15 +243,15 @@ def main(config: TrainerConfig) -> None:
     config.print_to_terminal()
     config.save_config()
 
-    launch(
-        main_func=train_loop,
-        num_devices_per_machine=config.machine.num_devices,
-        device_type=config.machine.device_type,
-        num_machines=config.machine.num_machines,
-        machine_rank=config.machine.machine_rank,
-        dist_url=config.machine.dist_url,
-        config=config,
-    )
+    dist.init_process_group("nccl")
+    global_rank = dist.get_rank()
+    local_rank = global_rank % torch.cuda.device_count()
+    world_size = dist.get_world_size()
+
+    try:
+        train_loop(local_rank=local_rank, world_size=world_size, config=config, global_rank=global_rank)
+    finally:
+        profiler.flush_profiler(config.logging)
 
 
 def entrypoint():
