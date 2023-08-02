@@ -27,7 +27,7 @@ gpu_type = "24GB VRAM GPU"
 nnodes = 20
 venv_path = "~/nerfstudio/.venv/bin/activate"
 output_path = "~/output_nerfacto"
-command = "nerfstudio/scripts/train_ddp.py nerfacto --data /nerfstudtio/poster"
+command = "nerfstudio/scripts/train_ddp.py nerfacto --data /nerfstudio/poster"
 ```
 
 Begin training
