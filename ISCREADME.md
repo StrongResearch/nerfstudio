@@ -4,8 +4,8 @@ Setup virtualenv, install requirements and download demo data
 
 ```bash
 git clone https://github.com/StrongResearch/nerfstudio.git
-git checkout chris-ddp
 cd nerfstudio
+git checkout chris-ddp
 
 python3 -m virtualenv .venv
 source .venv/bin/activate
