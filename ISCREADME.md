@@ -24,10 +24,10 @@ Configure for ISC by copying the following into `~/nerfstudio/config.isc`. Alter
 ```toml
 experiment_name = "nerfacto-poster"
 gpu_type = "24GB VRAM GPU"
-nnodes = 20
+nnodes = 10
 venv_path = "~/nerfstudio/.venv/bin/activate"
 output_path = "~/output_nerfacto"
-command = "nerfstudio/scripts/train_ddp.py nerfacto --data /nerfstudio/poster"
+command = "nerfstudio/scripts/train_ddp.py nerfacto --logging.local-writer.max-log-size=0 --data data/nerfstudio/poster"
 ```
 
 Begin training
