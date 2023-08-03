@@ -27,7 +27,7 @@ gpu_type = "24GB VRAM GPU"
 nnodes = 10
 venv_path = "~/nerfstudio/.venv/bin/activate"
 output_path = "~/output_nerfacto"
-command = "nerfstudio/scripts/train_ddp.py nerfacto --logging.local-writer.max-log-size=0 --data data/nerfstudio/poster"
+command = "nerfstudio/scripts/train_ddp.py nerfacto --logging.local-writer.max-log-size=0 --viewer.quit-on-train-completion True --data data/nerfstudio/poster"
 ```
 
 Begin training
