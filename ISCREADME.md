@@ -22,12 +22,12 @@ ns-download-data nerfstudio --capture-name=poster
 Configure for ISC by copying the following into `~/nerfstudio/config.isc`. Alternatively generate with `isc init`.
 
 ```toml
-experiment_name = "nerfacto-poster"
-gpu_type = "24GB VRAM GPU"
-nnodes = 10
-venv_path = "~/nerfstudio/.venv/bin/activate"
-output_path = "~/output_nerfacto"
-command = "nerfstudio/scripts/train_ddp.py nerfacto --logging.local-writer.max-log-size=0 --viewer.quit-on-train-completion True --data data/nerfstudio/poster"
+experiment_name = "nerfacto-cycle"
+gpu_type = "Legacy 24GB VRAM GPU"
+nnodes = 1
+venv_path = "~/.venv/bin/activate"
+output_path = "~/output-nerfacto-cycle"
+command = "nerfstudio/scripts/train_ddp.py nerfacto --logging.local-writer.max-log-size=0 --viewer.quit-on-train-completion True --data data/nerfstudio/poster --steps-per-save 200 --timestamp experiment_62 --output_dir $OUTPUT_PATH --load-dir $OUTPUT_PATH/poster/nerfacto/experiment_62/nerfstudio_models"
 ```
 
 Begin training

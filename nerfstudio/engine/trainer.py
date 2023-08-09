@@ -393,7 +393,7 @@ class Trainer:
         """Helper function to load pipeline and optimizer from prespecified checkpoint"""
         load_dir = self.config.load_dir
         load_checkpoint = self.config.load_checkpoint
-        if load_dir is not None:
+        if load_dir is not None and os.path.isdir(load_dir):
             load_step = self.config.load_step
             if load_step is None:
                 print("Loading latest Nerfstudio checkpoint from load_dir...")
